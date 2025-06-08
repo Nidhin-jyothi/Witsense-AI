@@ -71,3 +71,84 @@ ros2 run sensor_reading sensor_subscriber
 📸 Below is a screenshot of the terminal showing both `sensor_publisher` and `sensor_subscriber` nodes running successfully:
 
 ![Sensor Node Output](sensor_nodes_running.png)
+
+
+## 🧍‍♂️ Person Detection using YOLOv8
+
+This section demonstrates a live person detection system using YOLOv8 on a simulated UGV in Gazebo. The robot publishes camera images, performs inference using YOLO, and shows detection results in `RViz2`.
+
+---
+
+## 📦 Related Packages
+
+- `yolobot_gazebo`: Launches the robot model with camera in a Gazebo world.
+- `yolobot_recognition`: Runs YOLOv8 publisher and subscriber nodes for detection.
+- `yolov8_msgs`: Custom message types used for YOLO detection results.
+
+---
+
+## 🧪 Running Person Detection
+
+### 🧰 Step-by-Step Commands
+
+## 📦 Required Dependencies
+Install the following before running YOLO or Gazebo-based packages:
+
+🔧 System & Python Dependencies
+```bash
+sudo apt update
+sudo apt install ros-humble-teleop-twist-keyboard \
+                 ros-humble-image-transport \
+                 ros-humble-cv-bridge \
+                 ros-humble-rviz2 \
+                 ros-humble-gazebo-ros \
+                 python3-colcon-common-extensions
+
+pip install ultralytics opencv-python numpy
+```
+
+In each terminal, make sure to source your workspace first:
+```bash
+source ~/robot_ws/install/setup.bash
+```
+
+Also, source Gazebo:
+
+```bash
+source /usr/share/gazebo/setup.sh
+```
+
+## 🚀 Launch the UGV in Gazebo
+```bash
+ros2 launch yolobot_gazebo robot_model.launch.py
+```
+
+## 🧠 Start the YOLOv8 Detection Pipeline
+In a new terminal:
+
+1. Publisher Node – captures camera images and performs YOLO inference
+
+```bash
+ros2 run yolobot_recognition yolov8_publisher
+```
+
+2. Subscriber Node – listens to detection results and logs them
+
+```bash
+ros2 run yolobot_recognition yolov8_subscriber
+```
+
+# 🎮 Move the Robot
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+#🧿 View Results in RViz2
+```bash
+rviz2
+```
+Add a new Image display
+
+Set topic to: /inference_result
+
+You should now see bounding boxes and detections in real time
