@@ -152,3 +152,9 @@ Add a new Image display
 Set topic to: /inference_result
 
 You should now see bounding boxes and detections in real time
+
+## 🖼️ Screenshot – YOLO Detection in RViz
+
+📸 Below is a screenshot showing person detection using YOLOv8 in RViz2 with live bounding boxes overlaid:
+
+![YOLO Detection Output](yolo_detection_rviz.png)
