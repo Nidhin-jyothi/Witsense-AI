@@ -138,12 +138,12 @@ ros2 run yolobot_recognition yolov8_publisher
 ros2 run yolobot_recognition yolov8_subscriber
 ```
 
-# 🎮 Move the Robot
+### 🎮 Move the Robot
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-#🧿 View Results in RViz2
+### 🧿 View Results in RViz2
 ```bash
 rviz2
 ```
