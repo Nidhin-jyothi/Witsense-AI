@@ -4,6 +4,13 @@ This project simulates an Unmanned Ground Vehicle (UGV) in a 3D environment usin
 
 ---
 
+## 🎥 Full Demo Video
+
+Watch the complete working demo of sensor publishing, YOLO detection, SLAM mapping, and autonomous navigation:
+
+📺 [Click here to view the video demo](https://drive.google.com/drive/folders/10KsEizjufrcOa3vrA5mmQBvmBLE3KLgd?usp=sharing)
+
+
 ## 📦 Packages Included
 
 - `sensor_reading`: Publishes and subscribes to simulated sensor data
