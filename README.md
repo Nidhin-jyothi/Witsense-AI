@@ -158,3 +158,76 @@ You should now see bounding boxes and detections in real time
 📸 Below is a screenshot showing person detection using YOLOv8 in RViz2 with live bounding boxes overlaid:
 
 ![YOLO Detection Output](yolo_detection_rviz.png)
+
+
+## 🗺️ SLAM and Navigation (Using Nav2)
+
+This section covers how the UGV performs SLAM (Simultaneous Localization and Mapping) to create a 2D map of the simulated environment, and then reuses that map for autonomous navigation using the Nav2 stack.
+
+---
+
+## 📍 Steps to Run SLAM
+
+### 🧰 Terminal Setup
+
+In **each terminal**, source your workspace and Gazebo:
+
+```bash
+source ~/robot_ws/install/setup.bash
+source /usr/share/gazebo/setup.sh
+```
+
+## 🚀 Launch the Gazebo World and SLAM
+1. Launch the robot in the environment
+
+```bash
+ros2 launch gazebo_test gazebo_model.launch.py
+```
+2. Launch the SLAM node
+
+```bash
+ros2 launch gazebo_test online_async.launch.py
+```
+## 🧿 Open RViz and Visualize the Map
+
+```bash
+rviz2
+```
+Add Map display.
+
+Set topic to: /map
+
+## 🎮 Move the Robot Around to Build the Map
+Use keyboard control:
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+Drive the robot around to build a full map of the environment in RViz.
+
+## 💾 Save the Generated Map
+Once the environment is explored:
+
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/robot_ws/src/gazebo_test/map/my_map
+```
+This saves two files: my_map.yaml and my_map.pgm.
+
+## 🤖 Launch Navigation with Saved Map
+Use the saved map to enable 2D Nav2-based path planning and navigation:
+
+```bash
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=True map:=~/robot_ws/src/gazebo_test/map/my_map
+```
+📌 In RViz:
+Add Map and Costmap display types.
+
+Use 2D Pose Estimate to set the initial robot pose.
+
+Use 2D Nav Goal to set a destination.
+
+UGV should now autonomously navigate using the previously created map!
+
+
+
+
