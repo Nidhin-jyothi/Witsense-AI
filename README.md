@@ -228,6 +228,21 @@ Use 2D Nav Goal to set a destination.
 
 UGV should now autonomously navigate using the previously created map!
 
+## 🖼️ Screenshots – SLAM and Navigation
+
+### 🗺️ SLAM Mapping in RViz
+
+📸 Below is a screenshot showing the robot mapping the environment using SLAM:
+
+![SLAM Map in RViz](slam_map_rviz.png)
+
+---
+
+### 🤖 Navigation using Nav2
+
+📸 Below is a screenshot showing the robot navigating with a 2D Nav Goal in the pre-saved map:
+
+![Navigation in RViz](nav2_goal_rviz.png)
 
 
 
