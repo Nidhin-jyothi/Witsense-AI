@@ -65,3 +65,9 @@ Subscriber Node
 ```bash
 ros2 run sensor_reading sensor_subscriber
 ```
+
+## 🖼️ Screenshot
+
+📸 Below is a screenshot of the terminal showing both `sensor_publisher` and `sensor_subscriber` nodes running successfully:
+
+![Sensor Node Output](sensor_nodes_running.png)
