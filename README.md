@@ -23,7 +23,7 @@ This project simulates an Unmanned Ground Vehicle (UGV) in a 3D environment usin
 mkdir -p ~/robot_ws/src
 cd ~/robot_ws/src
 
-# Clone your repository (replace with your actual repo URL)
+# Clone repository 
 git clone https://github.com/Nidhin-jyothi/Witsense-AI.git
 
 # Move into the workspace root
@@ -34,3 +34,34 @@ colcon build
 
 # Source the setup script before using ROS 2 commands
 source install/setup.bash
+
+```
+
+## 📡 Running Sensor Simulation
+
+We begin by testing the sensor_reading package. This package contains:
+
+A publisher node: sends random float values between 0 and 1 on the topic /sensor_x_readings
+
+A subscriber node: listens to /sensor_x_readings and prints a message when values are greater than 0.5
+
+## ✅ Commands to Run
+Open a new terminal (and remember to source the workspace in each one):
+
+```bash
+source ~/robot_ws/install/setup.bash
+```
+
+Then run:
+
+Publisher Node
+
+```bash
+ros2 run sensor_reading sensor_publisher
+```
+
+Subscriber Node
+
+```bash
+ros2 run sensor_reading sensor_subscriber
+```
